@@ -17,5 +17,6 @@ password: admin
 ## Currently used in
 * [auth-service-nestjs](https://github.com/pixelprodukt/auth-service-nestjs) 
 * [budgetmanager-service](https://github.com/pixelprodukt/budgetmanager-service)
+* okh-rdf-etl-service (wip)
 
 Those repositories need at least a database with the schema as created in the scripts in the ./db folder. This whole repo is just for local usage.
