@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS projects (
     image_url TEXT,
     manifest TEXT,
     source_url TEXT,
+    hash TEXT,
     created_at TIMESTAMPTZ DEFAULT now(),
     updated_at TIMESTAMPTZ DEFAULT now()
 );
