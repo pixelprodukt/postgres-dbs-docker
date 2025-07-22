@@ -16,52 +16,26 @@ CREATE TABLE IF NOT EXISTS licenses (
 
 CREATE TABLE IF NOT EXISTS projects (
     id UUID PRIMARY KEY,
+    uri_id TEXT UNIQUE NOT NULL,
     name TEXT,
-    function TEXT,
+    description TEXT,
+    license TEXT,
     licensor TEXT,
+    language TEXT,
     version TEXT,
-    license_id INTEGER REFERENCES licenses(id),
-    language_id INTEGER REFERENCES languages(id),
-    source_license TEXT,
-    source_license_name TEXT,
-    source_license_osi TEXT,
-    source_licensor TEXT,
-    source_url TEXT,
-    readme TEXT,
-    technology_readiness_level TEXT,
-    technology_readiness_level_label TEXT,
-    technology_readiness_level_comment TEXT,
-    technology_readiness_level_goal TEXT,
     documentation_readiness_level TEXT,
-    documentation_readiness_level_label TEXT,
-    documentation_readiness_level_comment TEXT,
-    documentation_readiness_level_goal TEXT,
-    attestation TEXT,
-    doi TEXT,
-    std TEXT,
-    cpc TEXT,
-    tsdc_id TEXT,
-    bom_url TEXT,
-    manufacturing_instructions TEXT,
-    user_manual TEXT,
-    mass TEXT,
-    outer_dimensions_width TEXT,
-    outer_dimensions_height TEXT,
-    outer_dimensions_depth TEXT,
-    img_url TEXT,
-    release_url TEXT,
-    normalized_manifest TEXT,
-    project_source_url TEXT,
-    project TEXT,
-
+    technology_readiness_level TEXT,
+    image_url TEXT,
+    manifest TEXT,
+    source_url TEXT,
     created_at TIMESTAMPTZ DEFAULT now(),
     updated_at TIMESTAMPTZ DEFAULT now()
 );
 
 -- Indexes for search and filter
 CREATE INDEX idx_projects_name ON projects (name);
-CREATE INDEX idx_projects_function ON projects (function);
+CREATE INDEX idx_projects_function ON projects (description);
+CREATE INDEX idx_projects_license ON projects (license);
 CREATE INDEX idx_projects_licensor ON projects (licensor);
 CREATE INDEX idx_projects_version ON projects (version);
-CREATE INDEX idx_projects_license_id ON projects (license_id);
-CREATE INDEX idx_projects_language_id ON projects (language_id);
+CREATE INDEX idx_projects_language ON projects (language);
